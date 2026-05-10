@@ -61,7 +61,18 @@ python regex.py
 ## Приклади роботи та результати тестування
 
 ### Демонстраційний вивід `regex.py`
-При запуску базового коду з шаблоном `"a*4.+hi"` виводиться такий результат:
+При запуску базового коду з шаблоном `"a*4.+hi"`:
+
+```python
+regex_pattern = "a*4.+hi"
+regex_compiled = RegexFSM(regex_pattern)
+
+print(regex_compiled.check_string("aaaaaa4uhi"))
+print(regex_compiled.check_string("4uhi"))
+print(regex_compiled.check_string("meow"))
+```
+
+Виводиться такий результат:
 ```text
 True
 True
