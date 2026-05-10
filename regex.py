@@ -101,6 +101,9 @@ class RegexFSM:
             case next_token if next_token.isascii():
                 new_state = AsciiState(next_token)
 
+            case next_token if next_token in ("*", "+"):
+                if isinstance(tmp_next_state, StartState):
+                    raise ValueError(f"'{next_token}' cannot appear at the start of a pattern")
             case _:
                 raise AttributeError("Character is not supported")
 
